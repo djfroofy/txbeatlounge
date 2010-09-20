@@ -11,8 +11,8 @@ import constants
 
 
 e = Enunciator(sf2path='sf2/Ob-3.sf2')
-e2 = Enunciator(sf2path='sf2/english_organ.sf2') # channel=1 (less staccato)
-e3 = Enunciator(sf2path='sf2/hs_magic_techno_drums.sf2') # channel=2
+e2 = Enunciator(sf2path='sf2/english_organ.sf2', channel=1) # channel=1 (less staccato)
+e3 = Enunciator(sf2path='sf2/hs_magic_techno_drums.sf2', channel=2) # channel=2
 
 p = PatternGenerator(e)
 p2 = PatternGenerator(e2, noteweights=[('B', 8), ('F', 4), ('A', 8), ('D', 12), ('C', 10), ('E', 10), ('G', 10)])
