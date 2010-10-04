@@ -67,7 +67,6 @@ class DispatcherHub(object):
 
     def __getitem__(self, address):
         return self._addresses[address]
- 
 
 # Some generic device representations
 
