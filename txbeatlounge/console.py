@@ -6,7 +6,8 @@ from twisted.internet import stdio, protocol, defer
 from twisted.conch.stdio import ServerProtocol, ConsoleManhole
 from twisted.python import failure, reflect, log
 
-from txbeatlounge.internet import reactor
+from txbeatlounge.scheduler2 import clock as reactor
+
 
 def runWithProtocol(klass, audioDev):
     fd = sys.__stdin__.fileno()
@@ -15,7 +16,7 @@ def runWithProtocol(klass, audioDev):
     try:
         p = ServerProtocol(klass)
         stdio.StandardIO(p)
-        reactor.audioDevice = audioDev
+        reactor.synthAudioDevice = audioDev
         reactor.run()
     finally:
         termios.tcsetattr(fd, termios.TCSANOW, oldSettings)
@@ -40,5 +41,6 @@ def main(argv=None, reactor=None):
     runWithProtocol(klass, audioDev)
 
 if __name__ == '__main__':
+    import time
     main()
  
